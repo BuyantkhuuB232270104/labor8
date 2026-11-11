@@ -1,0 +1,57 @@
+name: Python CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Build ба тест (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+
+    steps:
+      - name: Кодыг татах
+        uses: actions/checkout@v4
+
+      - name: Python орчин бэлтгэх
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Хамаарал суулгах
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build — синтакс шалгах
+        run: python -m compileall -q src tests
+
+      - name: Build — өгөгдлийн сан үүсгэх (smoke test)
+        env:
+          LAB5_DEMO_PASSWORD: ci-only-demo-password
+        run: python -m src.app --init --db "$RUNNER_TEMP/ci.db"
+
+      - name: Автомат тест ажиллуулах
+        run: python -m pytest -v --junitxml=test-results.xml
+
+      - name: Тестийн үр дүнг хадгалах
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-py${{ matrix.python-version }}
+          path: test-results.xml
