@@ -26,6 +26,7 @@ STATUS_LABELS = {
 # Цэвэрлэгээний ажилтан зөвхөн хүлээн авснаас бэлэн болох хүртэл шилжүүлнэ.
 WORKER_TRANSITIONS = {
     ("received", "cleaning"),
+    ("received", "ready"),  # ЗОРИУД АЛДАА: алхам алгасахыг зөвшөөрөв
     ("cleaning", "quality_check"),
     ("quality_check", "ready"),
     ("quality_check", "cleaning"),  # чанарын шалгалтаас буцаах
