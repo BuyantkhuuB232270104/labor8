@@ -1,8 +1,8 @@
 # Хими цэвэрлэгээний үйлчилгээний систем
 
-![Python CI](https://github.com/<OWNER>/<REPO>/actions/workflows/ci.yml/badge.svg)
+![Python CI](https://github.com/<BuyantkhuuB232270104>/<labor8>/actions/workflows/ci.yml/badge.svg)
 
-> `<OWNER>/<REPO>`-г өөрийн GitHub репозиторын нэрээр солино.
+> `<BuyantkhuuB232270104>/<labor8>`
 
 Sprint 1-ийн хэрэгжилт:
 
