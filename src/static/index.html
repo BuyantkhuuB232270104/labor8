@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Хими цэвэрлэгээ — Захиалгын явц</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header><h1>Хими цэвэрлэгээ</h1><button id="logout" hidden>Гарах</button></header>
+  <main>
+    <section id="login-view">
+      <h2>Нэвтрэх</h2>
+      <form id="login-form">
+        <label>Нэвтрэх нэр <input id="username" autocomplete="username" required></label>
+        <label>Нууц үг <input id="password" type="password" autocomplete="current-password" required></label>
+        <button type="submit">Нэвтрэх</button>
+      </form>
+    </section>
+    <section id="app-view" hidden>
+      <div class="bar"><h2 id="list-title">Миний захиалгууд</h2><button id="refresh">Шинэчлэх</button></div>
+      <ul id="orders"></ul>
+      <article id="detail" hidden></article>
+    </section>
+    <p id="message" role="alert"></p>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

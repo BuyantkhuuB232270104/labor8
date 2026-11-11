@@ -1,0 +1,21 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #f5f6f8; color: #1d2330; }
+header { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: #1f4e79; color: #fff; }
+header h1 { font-size: 1.2rem; margin: 0; }
+main { max-width: 900px; margin: 0 auto; padding: 20px; }
+form { display: grid; gap: 12px; max-width: 360px; }
+label { display: grid; gap: 4px; }
+input, select, textarea { font: inherit; padding: 8px; border: 1px solid #b8c0cc; border-radius: 6px; }
+button { font: inherit; padding: 8px 14px; border: 0; border-radius: 6px; background: #2e75b6; color: #fff; cursor: pointer; }
+.bar { display: flex; justify-content: space-between; align-items: center; }
+#orders { list-style: none; padding: 0; display: grid; gap: 8px; }
+#orders li { background: #fff; border: 1px solid #dde2ea; border-radius: 8px; padding: 12px; cursor: pointer; }
+#detail { background: #fff; border: 1px solid #dde2ea; border-radius: 8px; padding: 16px; margin-top: 16px; }
+.progress { height: 8px; background: #e3e8ef; border-radius: 4px; overflow: hidden; }
+.progress span { display: block; height: 100%; background: #2e75b6; }
+#message { color: #b42318; min-height: 1.2em; }
+@media (max-width: 700px) {
+  main { padding: 12px; }
+  form { max-width: none; }
+  .bar { flex-direction: column; align-items: stretch; gap: 8px; }
+}
